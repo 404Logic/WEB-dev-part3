@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Spares & Brothers</title>
+  <meta name="description" content="Browse our complete catalog of quality used vehicles and genuine spare parts. Find cars, bakkies, SUVs, and parts for all major brands.">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html">
+        <i class="fas fa-car-side me-2"></i>SPARES & BROTHERS
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header py-5 bg-light">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Our Products</h1>
+      <p class="lead">Quality used vehicles and genuine spare parts at affordable prices</p>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row" id="productsGrid">
+
+        <!-- Toyota Corolla -->
+        <div class="col-lg-4 col-md-6 mb-4 product-card" data-category="vehicles" data-brand="toyota" data-price="185000">
+          <div class="card h-100">
+            <img src="../Assets/Toyota corolla 2020.webp" width="400" height="250" class="card-img-top" alt="Toyota Corolla 2020">
+            <div class="card-body">
+              <h5 class="card-title">Toyota Corolla 2020</h5>
+              <p class="card-text"><small class="text-muted">Sedan • 45,000 km • Automatic</small><br>Excellent condition, full service history, low mileage</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price">R185,000</span>
+                <div>
+                  <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Toyota Corolla 2020','R185,000')"><i class="fab fa-whatsapp"></i></button>
+                  <button class="btn btn-sm btn-danger" onclick="inquireProduct('Toyota Corolla 2020')">Inquire</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VW Polo -->
+        <div class="col-lg-4 col-md-6 mb-4 product-card" data-category="vehicles" data-brand="volkswagen" data-price="165000">
+          <div class="card h-100">
+            <img src="../Assets/vw polo 2019.jpeg" class="card-img-top" alt="VW Polo 2019">
+            <div class="card-body">
+              <h5 class="card-title">VW Polo 1.0 TSI 2019</h5>
+              <p class="card-text"><small class="text-muted">Hatchback • 38,000 km • Manual</small><br>Fuel efficient, perfect for daily commute, excellent condition</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price">R165,000</span>
+                <div>
+                  <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('VW Polo 2019','R165,000')"><i class="fab fa-whatsapp"></i></button>
+                  <button class="btn btn-sm btn-danger" onclick="inquireProduct('VW Polo 2019')">Inquire</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ford Ranger -->
+        <div class="col-lg-4 col-md-6 mb-4 product-card" data-category="vehicles" data-brand="ford" data-price="275000">
+          <div class="card h-100">
+            <img src="../Assets/ford ranger 2018.jpeg" class="card-img-top" alt="Ford Ranger 2018">
+            <div class="card-body">
+              <h5 class="card-title">Ford Ranger 2.2 TDCi 2018</h5>
+              <p class="card-text"><small class="text-muted">Double Cab • 65,000 km • Manual • 4x4</small><br>Ready for work or adventure, excellent condition</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price">R275,000</span>
+                <div>
+                  <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Ford Ranger 2018','R275,000')"><i class="fab fa-whatsapp"></i></button>
+                  <button class="btn btn-sm btn-danger" onclick="inquireProduct('Ford Ranger 2018')">Inquire</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Speedometer -->
+<div class="col-lg-4 col-md-6 mb-4 product-card" data-category="spares" data-brand="universal" data-price="1450">
+  <div class="card h-100">
+    <img src="../Assets/corrola speedometter.jpeg" class="card-img-top" alt="Universal Speedometer">
+    <div class="card-body">
+      <h5 class="card-title">Universal Speedometer</h5>
+      <p class="card-text"><small class="text-muted">Brand New</small><br>High-quality universal fit speedometer for most car models. Digital and analog options available.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="price">R1,450</span>
+        <div>
+          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Universal Speedometer','R1,450')"><i class="fab fa-whatsapp"></i></button>
+          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Universal Speedometer')">Inquire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Exhaust System -->
+<div class="col-lg-4 col-md-6 mb-4 product-card" data-category="spares" data-brand="universal" data-price="3200">
+  <div class="card h-100">
+    <img src="../Assets/exhaust system.jpeg" class="card-img-top" alt="Exhaust System">
+    <div class="card-body">
+      <h5 class="card-title">Exhaust System</h5>
+      <p class="card-text"><small class="text-muted">Brand New & Used</small><br>Durable exhaust system to improve performance and reduce emissions. Fits multiple vehicle models.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="price">R3,200</span>
+        <div>
+          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Exhaust System','R3,200')"><i class="fab fa-whatsapp"></i></button>
+          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Exhaust System')">Inquire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Universal Fan -->
+<div class="col-lg-4 col-md-6 mb-4 product-card" data-category="spares" data-brand="universal" data-price="1250">
+  <div class="card h-100">
+    <img src="../Assets/universal fan.jpeg" class="card-img-top" alt="Universal Radiator Fan">
+    <div class="card-body">
+      <h5 class="card-title">Universal Radiator Fan</h5>
+      <p class="card-text"><small class="text-muted">Brand New</small><br>Powerful universal radiator fan to keep your engine cool. Compatible with most cars and bakkies.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="price">R1,250</span>
+        <div>
+          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Universal Radiator Fan','R1,250')"><i class="fab fa-whatsapp"></i></button>
+          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Universal Radiator Fan')">Inquire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fuel Pump -->
+<div class="col-lg-4 col-md-6 mb-4 product-card" data-category="spares" data-brand="universal" data-price="1650">
+  <div class="card h-100">
+    <img src="../Assets/fullpump.jpeg" class="card-img-top" alt="Universal Fuel Pump">
+    <div class="card-body">
+      <h5 class="card-title">Universal Fuel Pump</h5>
+      <p class="card-text"><small class="text-muted">Brand New & Used</small><br>Universal fuel pump suitable for most vehicles. Reliable and durable for efficient fuel delivery.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="price">R1,650</span>
+        <div>
+          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Universal Fuel Pump','R1,650')"><i class="fab fa-whatsapp"></i></button>
+          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Universal Fuel Pump')">Inquire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Headlight -->
+<div class="col-lg-4 col-md-6 mb-4 product-card" data-category="spares" data-brand="ford" data-price="2100">
+  <div class="card h-100">
+    <img src="../Assets/honda fule pump.jpeg" class="card-img-top" alt="Ford Ranger Headlight">
+    <div class="card-body">
+      <h5 class="card-title">Ford Ranger Headlight</h5>
+      <p class="card-text"><small class="text-muted">Brand New</small><br>High-quality replacement headlight for Ford Ranger models. Durable and long-lasting.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="price">R2,100</span>
+        <div>
+          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Ford Ranger Headlight','R2,100')"><i class="fab fa-whatsapp"></i></button>
+          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Ford Ranger Headlight')">Inquire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Turbocharger -->
+<div class="col-lg-4 col-md-6 mb-4 product-card" data-category="spares" data-brand="universal" data-price="7800">
+  <div class="card h-100">
+    <img src="../Assets/universal turbo.jpeg" class="card-img-top" alt="Turbocharger">
+    <div class="card-body">
+      <h5 class="card-title">Turbocharger</h5>
+      <p class="card-text"><small class="text-muted">Brand New</small><br>Performance turbocharger designed to boost power and efficiency. Fits various diesel and petrol engines.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="price">R7,800</span>
+        <div>
+          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Turbocharger','R7,800')"><i class="fab fa-whatsapp"></i></button>
+          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Turbocharger')">Inquire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Window Motor -->
+<div class="col-lg-4 col-md-6 mb-4 product-card" data-category="spares" data-brand="universal" data-price="950">
+  <div class="card h-100">
+    <img src="../Assets/window motor.jpeg" class="card-img-top" alt="Window Motor">
+    <div class="card-body">
+      <h5 class="card-title">Window Motor</h5>
+      <p class="card-text"><small class="text-muted">Brand New</small><br>Electric window motor compatible with multiple vehicle brands. Smooth and reliable operation.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="price">R950</span>
+        <div>
+          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Window Motor','R950')"><i class="fab fa-whatsapp"></i></button>
+          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Window Motor')">Inquire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+      </div> <!-- end row -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h5>Spares & Brothers</h5>
+          <p>Your trusted local source for quality used vehicles and genuine spare parts in Limpopo.</p>
+          <div class="social-links">
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <h6>Contact Info</h6>
+          <ul>
+            <li>Vleifontein, Limpopo</li>
+            <li>+27 76 199 7892</li>
+            <li>ronewaramashia42@gmail.com</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h6>Business Hours</h6>
+          <ul>
+            <li>Monday - Friday: 8:00 AM - 5:00 PM</li>
+            <li>Saturday: 8:00 AM - 2:00 PM</li>
+            <li>Sunday: Closed</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="text-center">
+        <p>&copy; 2024 Spares & Brothers. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

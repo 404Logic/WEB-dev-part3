@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products - Spares & Brothers</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
   <meta name="description" content="Browse our complete catalog of quality used vehicles and genuine spare parts. Find cars, bakkies, SUVs, and parts for all major brands.">
 
   <!-- Google Fonts -->
@@ -42,6 +43,51 @@
     </div>
   </section>
 
+  <!-- Filters Section -->
+  <section class="py-4 bg-white border-bottom">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-3">
+          <label for="categoryFilter" class="form-label fw-bold">Category</label>
+          <select class="form-select" id="categoryFilter">
+            <option value="">All Categories</option>
+            <option value="vehicles">Vehicles</option>
+            <option value="spares">Spare Parts</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="brandFilter" class="form-label fw-bold">Brand</label>
+          <select class="form-select" id="brandFilter">
+            <option value="">All Brands</option>
+            <option value="toyota">Toyota</option>
+            <option value="volkswagen">Volkswagen</option>
+            <option value="ford">Ford</option>
+            <option value="universal">Universal</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="priceFilter" class="form-label fw-bold">Price Range</label>
+          <select class="form-select" id="priceFilter">
+            <option value="">All Prices</option>
+            <option value="0-5000">Under R5,000</option>
+            <option value="5000-20000">R5,000 - R20,000</option>
+            <option value="20000-100000">R20,000 - R100,000</option>
+            <option value="100000+">Over R100,000</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="searchInput" class="form-label fw-bold">Search</label>
+          <input type="text" id="searchInput" class="form-control" placeholder="Search products...">
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-3 offset-md-9">
+          <button id="clearFiltersBtn" class="btn btn-danger w-100">Clear Filters</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Products Grid -->
   <section class="py-5">
     <div class="container">
@@ -57,8 +103,8 @@
               <div class="d-flex justify-content-between align-items-center">
                 <span class="price">R185,000</span>
                 <div>
-                  <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Toyota Corolla 2020','R185,000')"><i class="fab fa-whatsapp"></i></button>
-                  <button class="btn btn-sm btn-danger" onclick="inquireProduct('Toyota Corolla 2020')">Inquire</button>
+<button class="btn btn-sm btn-outline-primary me-1"><i class="fab fa-whatsapp"></i></button>
+<button class="btn btn-sm btn-danger">Inquire</button>
                 </div>
               </div>
             </div>
@@ -75,8 +121,8 @@
               <div class="d-flex justify-content-between align-items-center">
                 <span class="price">R165,000</span>
                 <div>
-                  <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('VW Polo 2019','R165,000')"><i class="fab fa-whatsapp"></i></button>
-                  <button class="btn btn-sm btn-danger" onclick="inquireProduct('VW Polo 2019')">Inquire</button>
+<button class="btn btn-sm btn-outline-primary me-1"><i class="fab fa-whatsapp"></i></button>
+<button class="btn btn-sm btn-danger">Inquire</button>
                 </div>
               </div>
             </div>
@@ -93,8 +139,8 @@
               <div class="d-flex justify-content-between align-items-center">
                 <span class="price">R275,000</span>
                 <div>
-                  <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Ford Ranger 2018','R275,000')"><i class="fab fa-whatsapp"></i></button>
-                  <button class="btn btn-sm btn-danger" onclick="inquireProduct('Ford Ranger 2018')">Inquire</button>
+<button class="btn btn-sm btn-outline-primary me-1"><i class="fab fa-whatsapp"></i></button>
+<button class="btn btn-sm btn-danger">Inquire</button>
                 </div>
               </div>
             </div>
@@ -110,8 +156,8 @@
       <div class="d-flex justify-content-between align-items-center">
         <span class="price">R1,450</span>
         <div>
-          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Universal Speedometer','R1,450')"><i class="fab fa-whatsapp"></i></button>
-          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Universal Speedometer')">Inquire</button>
+<button class="btn btn-sm btn-outline-primary me-1"><i class="fab fa-whatsapp"></i></button>
+<button class="btn btn-sm btn-danger">Inquire</button>
         </div>
       </div>
     </div>
@@ -128,8 +174,8 @@
       <div class="d-flex justify-content-between align-items-center">
         <span class="price">R3,200</span>
         <div>
-          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Exhaust System','R3,200')"><i class="fab fa-whatsapp"></i></button>
-          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Exhaust System')">Inquire</button>
+<button class="btn btn-sm btn-outline-primary me-1"><i class="fab fa-whatsapp"></i></button>
+<button class="btn btn-sm btn-danger">Inquire</button>
         </div>
       </div>
     </div>
@@ -146,8 +192,8 @@
       <div class="d-flex justify-content-between align-items-center">
         <span class="price">R1,250</span>
         <div>
-          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Universal Radiator Fan','R1,250')"><i class="fab fa-whatsapp"></i></button>
-          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Universal Radiator Fan')">Inquire</button>
+<button class="btn btn-sm btn-outline-primary me-1"><i class="fab fa-whatsapp"></i></button>
+<button class="btn btn-sm btn-danger">Inquire</button>
         </div>
       </div>
     </div>
@@ -164,8 +210,8 @@
       <div class="d-flex justify-content-between align-items-center">
         <span class="price">R1,650</span>
         <div>
-          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Universal Fuel Pump','R1,650')"><i class="fab fa-whatsapp"></i></button>
-          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Universal Fuel Pump')">Inquire</button>
+<button class="btn btn-sm btn-outline-primary me-1"><i class="fab fa-whatsapp"></i></button>
+<button class="btn btn-sm btn-danger">Inquire</button>
         </div>
       </div>
     </div>
@@ -182,8 +228,8 @@
       <div class="d-flex justify-content-between align-items-center">
         <span class="price">R2,100</span>
         <div>
-          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Ford Ranger Headlight','R2,100')"><i class="fab fa-whatsapp"></i></button>
-          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Ford Ranger Headlight')">Inquire</button>
+<button class="btn btn-sm btn-outline-primary me-1"><i class="fab fa-whatsapp"></i></button>
+<button class="btn btn-sm btn-danger">Inquire</button>
         </div>
       </div>
     </div>
@@ -200,8 +246,8 @@
       <div class="d-flex justify-content-between align-items-center">
         <span class="price">R7,800</span>
         <div>
-          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Turbocharger','R7,800')"><i class="fab fa-whatsapp"></i></button>
-          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Turbocharger')">Inquire</button>
+<button class="btn btn-sm btn-outline-primary me-1"><i class="fab fa-whatsapp"></i></button>
+<button class="btn btn-sm btn-danger">Inquire</button>
         </div>
       </div>
     </div>
@@ -218,8 +264,8 @@
       <div class="d-flex justify-content-between align-items-center">
         <span class="price">R950</span>
         <div>
-          <button class="btn btn-sm btn-outline-primary me-1" onclick="shareOnWhatsApp('Window Motor','R950')"><i class="fab fa-whatsapp"></i></button>
-          <button class="btn btn-sm btn-danger" onclick="inquireProduct('Window Motor')">Inquire</button>
+<button class="btn btn-sm btn-outline-primary me-1"><i class="fab fa-whatsapp"></i></button>
+<button class="btn btn-sm btn-danger">Inquire</button>
         </div>
       </div>
     </div>
@@ -267,5 +313,7 @@
       </div>
     </div>
   </footer>
+
+
 </body>
 </html>

@@ -109,6 +109,8 @@ The project began as a **basic HTML prototype** and has since evolved into a **f
 
 ```
 project/
+ script.js               # Main JavaScript file for interactivity
+ Pages/
 ├── index.html              # Home page
 ├── Pages/
 │   ├── about.html          # About Us page
@@ -127,6 +129,7 @@ project/
 ```
 
 ###  Technologies Used
+* **JavaScript**  Client-side interactivity and functionality
 
 * **HTML5** – Structure and semantic markup
 * **CSS3** – Styling, layout, and responsiveness
@@ -214,4 +217,5 @@ SEE WEBSITE RESPONSIVE DESIGN SCREENSHOTS
 * [MDN Web Docs](https://developer.mozilla.org/)
 * [Freepik](https://www.freepik.com/) / [Unsplash](https://unsplash.com/) – For stock images and automotive visuals
 
----
+
+

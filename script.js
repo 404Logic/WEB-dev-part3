@@ -407,7 +407,10 @@ function initializeImageGallery() {
 
 // ===== TESTIMONIALS SLIDER =====
 function initializeTestimonialsSlider() {
-    const testimonials = document.querySelectorAll('.testimonial-card');
+    const testimonialsContainer = document.getElementById('testimonialsContainer');
+    if (!testimonialsContainer) return;
+
+    const testimonials = testimonialsContainer.querySelectorAll('.testimonial-item');
     if (testimonials.length === 0) return;
 
     let currentTestimonial = 0;
@@ -431,8 +434,7 @@ function initializeTestimonialsSlider() {
     // Auto-rotate testimonials
     setInterval(nextTestimonial, 5000);
 
-    // Add navigation buttons if needed
-    const testimonialContainer = testimonials[0].parentNode;
+    // Add navigation buttons
     const navButtons = document.createElement('div');
     navButtons.className = 'testimonial-nav mt-3 text-center';
     navButtons.innerHTML = `
@@ -443,7 +445,7 @@ function initializeTestimonialsSlider() {
             <i class="fas fa-chevron-right"></i>
         </button>
     `;
-    testimonialContainer.appendChild(navButtons);
+    testimonialsContainer.appendChild(navButtons);
 
     document.getElementById('prev-testimonial').addEventListener('click', prevTestimonial);
     document.getElementById('next-testimonial').addEventListener('click', nextTestimonial);

@@ -175,6 +175,22 @@ function initializeFormValidation() {
     // Contact Form Validation
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
+        // Add real-time validation
+        const contactFields = ['name', 'email', 'phone', 'subject', 'message'];
+        contactFields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                field.addEventListener('blur', function() {
+                    validateContactField(fieldId);
+                });
+                field.addEventListener('input', function() {
+                    if (field.classList.contains('is-invalid')) {
+                        validateContactField(fieldId);
+                    }
+                });
+            }
+        });
+
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -189,6 +205,22 @@ function initializeFormValidation() {
     // Review Form Validation
     const reviewForm = document.getElementById('reviewForm');
     if (reviewForm) {
+        // Add real-time validation
+        const reviewFields = ['reviewName', 'reviewRating', 'reviewMessage'];
+        reviewFields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                field.addEventListener('blur', function() {
+                    validateReviewField(fieldId);
+                });
+                field.addEventListener('input', function() {
+                    if (field.classList.contains('is-invalid')) {
+                        validateReviewField(fieldId);
+                    }
+                });
+            }
+        });
+
         reviewForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -201,75 +233,143 @@ function initializeFormValidation() {
 }
 
 function validateContactForm() {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = document.getElementById('message').value.trim();
-
+    const fields = ['name', 'email', 'phone', 'subject', 'message'];
     let isValid = true;
 
-    // Name validation
-    if (name.length < 2) {
-        showFieldError('name', 'Name must be at least 2 characters');
-        isValid = false;
-    } else {
-        clearFieldError('name');
+    fields.forEach(fieldId => {
+        if (!validateContactField(fieldId)) {
+            isValid = false;
+        }
+    });
+
+    return isValid;
+}
+
+function validateContactField(fieldId) {
+    const field = document.getElementById(fieldId);
+    const value = field.value.trim();
+    let isValid = true;
+    let errorMessage = '';
+
+    switch (fieldId) {
+        case 'name':
+            if (value.length < 2) {
+                errorMessage = 'Name must be at least 2 characters long';
+                isValid = false;
+            } else if (value.length > 50) {
+                errorMessage = 'Name must be less than 50 characters';
+                isValid = false;
+            } else if (!/^[a-zA-Z\s\-']+$/.test(value)) {
+                errorMessage = 'Name can only contain letters, spaces, hyphens, and apostrophes';
+                isValid = false;
+            }
+            break;
+
+        case 'email':
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(value)) {
+                errorMessage = 'Please enter a valid email address';
+                isValid = false;
+            }
+            break;
+
+        case 'phone':
+            // South African phone number validation
+            const phoneRegex = /^(\+27|0)[6-8][0-9]{8}$/;
+            if (value && !phoneRegex.test(value.replace(/\s/g, ''))) {
+                errorMessage = 'Please enter a valid South African phone number (+27 XX XXX XXXX or 0XX XXX XXXX)';
+                isValid = false;
+            }
+            break;
+
+        case 'subject':
+            if (value.length < 5) {
+                errorMessage = 'Subject must be at least 5 characters long';
+                isValid = false;
+            } else if (value.length > 100) {
+                errorMessage = 'Subject must be less than 100 characters';
+                isValid = false;
+            }
+            break;
+
+        case 'message':
+            if (value.length < 10) {
+                errorMessage = 'Message must be at least 10 characters long';
+                isValid = false;
+            } else if (value.length > 1000) {
+                errorMessage = 'Message must be less than 1000 characters';
+                isValid = false;
+            }
+            break;
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        showFieldError('email', 'Please enter a valid email address');
-        isValid = false;
+    if (isValid) {
+        clearFieldError(fieldId);
     } else {
-        clearFieldError('email');
-    }
-
-    // Subject validation
-    if (subject.length < 5) {
-        showFieldError('subject', 'Subject must be at least 5 characters');
-        isValid = false;
-    } else {
-        clearFieldError('subject');
-    }
-
-    // Message validation
-    if (message.length < 10) {
-        showFieldError('message', 'Message must be at least 10 characters');
-        isValid = false;
-    } else {
-        clearFieldError('message');
+        showFieldError(fieldId, errorMessage);
     }
 
     return isValid;
 }
 
 function validateReviewForm() {
-    const name = document.getElementById('reviewName').value.trim();
-    const rating = document.getElementById('reviewRating').value;
-    const message = document.getElementById('reviewMessage').value.trim();
-
+    const fields = ['reviewName', 'reviewRating', 'reviewMessage'];
     let isValid = true;
 
-    if (name.length < 2) {
-        showFieldError('reviewName', 'Name must be at least 2 characters');
-        isValid = false;
-    } else {
-        clearFieldError('reviewName');
+    fields.forEach(fieldId => {
+        if (!validateReviewField(fieldId)) {
+            isValid = false;
+        }
+    });
+
+    return isValid;
+}
+
+function validateReviewField(fieldId) {
+    const field = document.getElementById(fieldId);
+    const value = field.value.trim();
+    let isValid = true;
+    let errorMessage = '';
+
+    switch (fieldId) {
+        case 'reviewName':
+            if (value.length < 2) {
+                errorMessage = 'Name must be at least 2 characters long';
+                isValid = false;
+            } else if (value.length > 50) {
+                errorMessage = 'Name must be less than 50 characters';
+                isValid = false;
+            } else if (!/^[a-zA-Z\s\-']+$/.test(value)) {
+                errorMessage = 'Name can only contain letters, spaces, hyphens, and apostrophes';
+                isValid = false;
+            }
+            break;
+
+        case 'reviewRating':
+            if (!value || value === '') {
+                errorMessage = 'Please select a rating';
+                isValid = false;
+            } else if (!['1', '2', '3', '4', '5'].includes(value)) {
+                errorMessage = 'Please select a valid rating (1-5 stars)';
+                isValid = false;
+            }
+            break;
+
+        case 'reviewMessage':
+            if (value.length < 10) {
+                errorMessage = 'Review must be at least 10 characters long';
+                isValid = false;
+            } else if (value.length > 500) {
+                errorMessage = 'Review must be less than 500 characters';
+                isValid = false;
+            }
+            break;
     }
 
-    if (!rating) {
-        showFieldError('reviewRating', 'Please select a rating');
-        isValid = false;
+    if (isValid) {
+        clearFieldError(fieldId);
     } else {
-        clearFieldError('reviewRating');
-    }
-
-    if (message.length < 10) {
-        showFieldError('reviewMessage', 'Review must be at least 10 characters');
-        isValid = false;
-    } else {
-        clearFieldError('reviewMessage');
+        showFieldError(fieldId, errorMessage);
     }
 
     return isValid;
@@ -499,6 +599,22 @@ function initializeInquiryModal() {
         });
     });
 
+    // Add real-time validation for inquiry form
+    const inquiryFields = ['customerName', 'customerEmail', 'customerPhone'];
+    inquiryFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (field) {
+            field.addEventListener('blur', function() {
+                validateInquiryField(fieldId);
+            });
+            field.addEventListener('input', function() {
+                if (field.classList.contains('is-invalid')) {
+                    validateInquiryField(fieldId);
+                }
+            });
+        }
+    });
+
     // Handle form submission
     submitInquiryBtn.addEventListener('click', function() {
         if (validateInquiryForm()) {
@@ -526,35 +642,60 @@ function initializeInquiryModal() {
 }
 
 function validateInquiryForm() {
-    const name = document.getElementById('customerName').value.trim();
-    const email = document.getElementById('customerEmail').value.trim();
-    const phone = document.getElementById('customerPhone').value.trim();
-
+    const fields = ['customerName', 'customerEmail', 'customerPhone'];
     let isValid = true;
 
-    // Name validation
-    if (name.length < 2) {
-        showFieldError('customerName', 'Name must be at least 2 characters');
-        isValid = false;
-    } else {
-        clearFieldError('customerName');
+    fields.forEach(fieldId => {
+        if (!validateInquiryField(fieldId)) {
+            isValid = false;
+        }
+    });
+
+    return isValid;
+}
+
+function validateInquiryField(fieldId) {
+    const field = document.getElementById(fieldId);
+    const value = field.value.trim();
+    let isValid = true;
+    let errorMessage = '';
+
+    switch (fieldId) {
+        case 'customerName':
+            if (value.length < 2) {
+                errorMessage = 'Name must be at least 2 characters long';
+                isValid = false;
+            } else if (value.length > 50) {
+                errorMessage = 'Name must be less than 50 characters';
+                isValid = false;
+            } else if (!/^[a-zA-Z\s\-']+$/.test(value)) {
+                errorMessage = 'Name can only contain letters, spaces, hyphens, and apostrophes';
+                isValid = false;
+            }
+            break;
+
+        case 'customerEmail':
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(value)) {
+                errorMessage = 'Please enter a valid email address';
+                isValid = false;
+            }
+            break;
+
+        case 'customerPhone':
+            // South African phone number validation
+            const phoneRegex = /^(\+27|0)[6-8][0-9]{8}$/;
+            if (value && !phoneRegex.test(value.replace(/\s/g, ''))) {
+                errorMessage = 'Please enter a valid South African phone number (+27 XX XXX XXXX or 0XX XXX XXXX)';
+                isValid = false;
+            }
+            break;
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        showFieldError('customerEmail', 'Please enter a valid email address');
-        isValid = false;
+    if (isValid) {
+        clearFieldError(fieldId);
     } else {
-        clearFieldError('customerEmail');
-    }
-
-    // Phone validation
-    if (phone.length < 10) {
-        showFieldError('customerPhone', 'Please enter a valid phone number');
-        isValid = false;
-    } else {
-        clearFieldError('customerPhone');
+        showFieldError(fieldId, errorMessage);
     }
 
     return isValid;

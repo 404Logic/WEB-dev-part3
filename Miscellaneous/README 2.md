@@ -178,6 +178,13 @@ To run the website locally:
 
 ## Changelog
 
+### Version 2.0.1 – 2025-10-XX
+
+* Modified JavaScript in script.js to remove navigation buttons (left/right arrows) and close button (X) from lightbox gallery; images now close only by clicking outside the overlay
+* Updated JavaScript for testimonials slider to maintain auto-rotation every 5 seconds without manual navigation controls
+* Maintained responsive design compatibility across all screen sizes (desktop, tablet, mobile)
+* Verified functionality through thorough testing of all pages and interactive elements
+
 ### Version 2.0.0 – 2025-09-XX
 
 * Upgraded website from basic HTML to HTML + CSS styled version
@@ -210,12 +217,13 @@ SEE WEBSITE RESPONSIVE DESIGN SCREENSHOTS
 
 ##  References
 
-* [Bootstrap Documentation](https://getbootstrap.com/)
-* [Google Fonts](https://fonts.google.com/)
-* [Font Awesome Icons](https://fontawesome.com/)
-* [W3Schools HTML & CSS Tutorials](https://www.w3schools.com/)
-* [MDN Web Docs](https://developer.mozilla.org/)
-* [Freepik](https://www.freepik.com/) / [Unsplash](https://unsplash.com/) – For stock images and automotive visuals
+* Bootstrap contributors. (2021) *Bootstrap*. Available at: https://getbootstrap.com/ (Accessed: 15 October 2025).
+* Fonticons, Inc. (2021) *Font Awesome*. Available at: https://fontawesome.com/ (Accessed: 15 October 2025).
+* Google. (2021) *Google Fonts*. Available at: https://fonts.google.com/ (Accessed: 15 October 2025).
+* Mozilla Developer Network. (2021) *MDN Web Docs*. Available at: https://developer.mozilla.org/ (Accessed: 15 October 2025).
+* Refsnes Data. (2021) *W3Schools*. Available at: https://www.w3schools.com/ (Accessed: 15 October 2025).
+* Freepik Company. (2021) *Freepik*. Available at: https://www.freepik.com/ (Accessed: 15 October 2025).
+* Unsplash, Inc. (2021) *Unsplash*. Available at: https://unsplash.com/ (Accessed: 15 October 2025).
 
 
 

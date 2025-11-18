@@ -5,27 +5,22 @@ console.log("Spares & Brothers website loaded successfully!");
 let currentSlide = 0;
 let slides = [];
 
-// DOM Content Loaded
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded and parsed");
-
-    // Initialize all interactive features
-    initializeAccordions();
-    initializeTabs();
-    initializeModals();
-    initializeLightbox();
-    initializeSearch();
-    initializeFormValidation();
-    initializeDynamicContent();
-    initializeImageGallery();
-    initializeTestimonialsSlider();
-    initializeProductFilters();
-    initializeInquiryModal();
-    initializeWhatsappButtons();
-});
-
 // Initialize live time and date immediately since script loads at end of body
 initializeLiveTimeAndDate();
+
+// Initialize all interactive features
+initializeAccordions();
+initializeTabs();
+initializeModals();
+initializeLightbox();
+initializeSearch();
+initializeFormValidation();
+initializeDynamicContent();
+initializeImageGallery();
+initializeTestimonialsSlider();
+initializeProductFilters();
+initializeInquiryModal();
+initializeWhatsappButtons();
 
 // ===== ACCORDIONS =====
 function initializeAccordions() {
@@ -640,8 +635,6 @@ function initializeInquiryModal() {
 
     if (!inquireButtons.length || !inquiryModal) return;
 
-    let modalInstance = null;
-
     // Open modal when inquire button is clicked
     inquireButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -651,9 +644,9 @@ function initializeInquiryModal() {
             // Set product name in modal
             productNameInput.value = productName;
 
-            // Show modal using Bootstrap
-            modalInstance = new bootstrap.Modal(inquiryModal);
-            modalInstance.show();
+            // Show modal
+            inquiryModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         });
     });
 
@@ -680,12 +673,27 @@ function initializeInquiryModal() {
             showFormSuccess('inquiryForm', 'Thank you for your inquiry! We\'ll get back to you within 24 hours.');
 
             // Close modal
-            if (modalInstance) {
-                modalInstance.hide();
-            }
+            inquiryModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
 
             // Reset form
             inquiryForm.reset();
+        }
+    });
+
+    // Close modal
+    const closeButtons = inquiryModal.querySelectorAll('.btn-close, .btn-secondary');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            inquiryModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+    inquiryModal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            inquiryModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
     });
 }

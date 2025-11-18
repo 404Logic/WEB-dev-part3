@@ -114,6 +114,9 @@ function initializeLightbox() {
     lightbox.id = 'lightbox';
     lightbox.innerHTML = `
         <div class="lightbox-overlay">
+            <button class="lightbox-prev" id="lightbox-prev">&larr;</button>
+            <button class="lightbox-next" id="lightbox-next">&rarr;</button>
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
             <div class="lightbox-content">
                 <img src="" alt="" id="lightbox-image">
                 <div class="lightbox-caption" id="lightbox-caption"></div>
@@ -137,13 +140,63 @@ function initializeLightbox() {
         document.getElementById('lightbox-caption').textContent = alt;
         lightbox.style.display = 'block';
         document.body.style.overflow = 'hidden';
+        updateNavigationButtons();
     }
 
-    // Close lightbox
+    function updateNavigationButtons() {
+        const prevBtn = document.getElementById('lightbox-prev');
+        const nextBtn = document.getElementById('lightbox-next');
+        prevBtn.style.display = currentImageIndex > 0 ? 'block' : 'none';
+        nextBtn.style.display = currentImageIndex < images.length - 1 ? 'block' : 'none';
+    }
+
+    function showNextImage() {
+        if (currentImageIndex < images.length - 1) {
+            currentImageIndex++;
+            const img = images[currentImageIndex];
+            showLightbox(img.src, img.alt);
+        }
+    }
+
+    function showPrevImage() {
+        if (currentImageIndex > 0) {
+            currentImageIndex--;
+            const img = images[currentImageIndex];
+            showLightbox(img.src, img.alt);
+        }
+    }
+
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Event listeners
+    document.getElementById('lightbox-prev').addEventListener('click', showPrevImage);
+    document.getElementById('lightbox-next').addEventListener('click', showNextImage);
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+
+    // Close lightbox when clicking outside
     document.querySelector('.lightbox-overlay').addEventListener('click', function(e) {
         if (e.target === this) {
-            lightbox.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            closeLightbox();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (lightbox.style.display === 'block') {
+            switch(e.key) {
+                case 'ArrowLeft':
+                    showPrevImage();
+                    break;
+                case 'ArrowRight':
+                    showNextImage();
+                    break;
+                case 'Escape':
+                    closeLightbox();
+                    break;
+            }
         }
     });
 }

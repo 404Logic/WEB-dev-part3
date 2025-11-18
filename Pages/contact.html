@@ -108,19 +108,21 @@
                             <i class="fas fa-envelope text-danger me-2"></i>Send us a Message
                         </h2>
                         <p class="text-center text-muted mb-4">We'd love to hear from you! Fill out the form below and we'll get back to you within 24 hours.</p>
-                        <form class="contact-form" id="contactForm">
+                        <form class="contact-form needs-validation" id="contactForm" novalidate>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="name" class="form-label fw-bold">
-                                        <i class="fas fa-user me-1"></i>Full Name
+                                        <i class="fas fa-user me-1"></i>Full Name *
                                     </label>
-                                    <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Enter your full name">
+                                    <input type="text" class="form-control form-control-lg" id="name" name="name" required placeholder="Enter your full name">
+                                    <div class="invalid-feedback">Please provide your full name.</div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label fw-bold">
-                                        <i class="fas fa-envelope me-1"></i>Email Address
+                                        <i class="fas fa-envelope me-1"></i>Email Address *
                                     </label>
                                     <input type="email" class="form-control form-control-lg" id="email" name="email" required placeholder="your@email.com">
+                                    <div class="invalid-feedback">Please provide a valid email address.</div>
                                 </div>
                             </div>
                             <div class="mb-3">
@@ -128,18 +130,21 @@
                                     <i class="fas fa-phone me-1"></i>Phone Number
                                 </label>
                                 <input type="tel" class="form-control form-control-lg" id="phone" name="phone" placeholder="+27 XX XXX XXXX">
+                                <div class="invalid-feedback">Please provide a valid South African phone number.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="subject" class="form-label fw-bold">
-                                    <i class="fas fa-tag me-1"></i>Subject
+                                    <i class="fas fa-tag me-1"></i>Subject *
                                 </label>
-                                <input type="text" class="form-control form-control-lg" id="subject" name="subject" placeholder="What's this about?">
+                                <input type="text" class="form-control form-control-lg" id="subject" name="subject" required placeholder="What's this about?">
+                                <div class="invalid-feedback">Please provide a subject.</div>
                             </div>
                             <div class="mb-4">
                                 <label for="message" class="form-label fw-bold">
-                                    <i class="fas fa-comment me-1"></i>Message
+                                    <i class="fas fa-comment me-1"></i>Message *
                                 </label>
                                 <textarea class="form-control form-control-lg" id="message" name="message" rows="5" required placeholder="Tell us how we can help you..."></textarea>
+                                <div class="invalid-feedback">Please provide a message.</div>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-danger btn-lg px-5 py-3">

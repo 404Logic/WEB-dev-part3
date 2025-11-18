@@ -254,7 +254,7 @@ function validateContactField(fieldId) {
     switch (fieldId) {
         case 'name':
             if (value.length < 2) {
-                errorMessage = 'Name must be at least 2 characters long';
+                errorMessage = 'Please provide your full name.';
                 isValid = false;
             } else if (value.length > 50) {
                 errorMessage = 'Name must be less than 50 characters';
@@ -268,7 +268,7 @@ function validateContactField(fieldId) {
         case 'email':
             const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             if (!emailRegex.test(value)) {
-                errorMessage = 'Please enter a valid email address';
+                errorMessage = 'Please provide a valid email address.';
                 isValid = false;
             }
             break;
@@ -276,15 +276,15 @@ function validateContactField(fieldId) {
         case 'phone':
             // South African phone number validation
             const phoneRegex = /^(\+27|0)[6-8][0-9]{8}$/;
-            if (value && !phoneRegex.test(value.replace(/\s/g, ''))) {
-                errorMessage = 'Please enter a valid South African phone number (+27 XX XXX XXXX or 0XX XXX XXXX)';
+            if (!value.trim() || !phoneRegex.test(value.replace(/\s/g, ''))) {
+                errorMessage = 'Please provide a valid South African phone number.';
                 isValid = false;
             }
             break;
 
         case 'subject':
-            if (value.length < 5) {
-                errorMessage = 'Subject must be at least 5 characters long';
+            if (value.length < 3) {
+                errorMessage = 'Please provide a subject.';
                 isValid = false;
             } else if (value.length > 100) {
                 errorMessage = 'Subject must be less than 100 characters';
@@ -294,7 +294,7 @@ function validateContactField(fieldId) {
 
         case 'message':
             if (value.length < 10) {
-                errorMessage = 'Message must be at least 10 characters long';
+                errorMessage = 'Please provide a message.';
                 isValid = false;
             } else if (value.length > 1000) {
                 errorMessage = 'Message must be less than 1000 characters';

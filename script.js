@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTestimonialsSlider();
     initializeProductFilters();
     initializeInquiryModal();
+    initializeWhatsappButtons();
 });
 
 // Initialize live time and date immediately since script loads at end of body
@@ -639,6 +640,8 @@ function initializeInquiryModal() {
 
     if (!inquireButtons.length || !inquiryModal) return;
 
+    let modalInstance = null;
+
     // Open modal when inquire button is clicked
     inquireButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -648,10 +651,9 @@ function initializeInquiryModal() {
             // Set product name in modal
             productNameInput.value = productName;
 
-            // Show modal
-            inquiryModal.classList.add('show');
-            inquiryModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+            // Show modal using Bootstrap
+            modalInstance = new bootstrap.Modal(inquiryModal);
+            modalInstance.show();
         });
     });
 
@@ -678,22 +680,28 @@ function initializeInquiryModal() {
             showFormSuccess('inquiryForm', 'Thank you for your inquiry! We\'ll get back to you within 24 hours.');
 
             // Close modal
-            inquiryModal.classList.remove('show');
-            inquiryModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            if (modalInstance) {
+                modalInstance.hide();
+            }
 
             // Reset form
             inquiryForm.reset();
         }
     });
+}
 
-    // Close modal when clicking outside or close button
-    inquiryModal.addEventListener('click', function(e) {
-        if (e.target === this || e.target.classList.contains('btn-close')) {
-            inquiryModal.classList.remove('show');
-            inquiryModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+// ===== WHATSAPP BUTTONS =====
+function initializeWhatsappButtons() {
+    const whatsappButtons = document.querySelectorAll('.product-card .btn-outline-primary');
+
+    whatsappButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const productCard = this.closest('.product-card');
+            const productName = productCard.querySelector('.card-title').textContent;
+            const message = `Hi, I'm interested in the ${productName}. Can you provide more details?`;
+            const whatsappUrl = `https://wa.me/27761997892?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
     });
 }
 

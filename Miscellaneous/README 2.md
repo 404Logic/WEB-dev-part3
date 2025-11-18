@@ -179,11 +179,75 @@ To run the website locally:
 ## Changelog
 
 ### Version 2.0.1 – 2025-10-XX
+1. JavaScript Interactive Components
 
-* Modified JavaScript in script.js to remove navigation buttons (left/right arrows) and close button (X) from lightbox gallery; images now close only by clicking outside the overlay
-* Updated JavaScript for testimonials slider to maintain auto-rotation every 5 seconds without manual navigation controls
-* Maintained responsive design compatibility across all screen sizes (desktop, tablet, mobile)
-* Verified functionality through thorough testing of all pages and interactive elements
+A full suite of JavaScript-driven features was introduced and documented, including:
+
+▪ Accordions, Tabs, and Modals
+
+Implemented collapsible content (accordions) for structured information.
+
+Added tabbed sections for cleaner content navigation.
+
+Integrated modal windows for dynamic, pop-up content presentation.
+
+▪ Gallery Lightbox
+
+Introduced a custom lightbox system for viewing images.
+
+Simplified the interface by removing navigation arrows and the close button; users now close the lightbox by clicking outside the overlay.
+
+Fully documented behaviour and usage.
+
+▪ Dynamic (Real-Time) Content
+
+Added JavaScript functions to update specific content in real time.
+
+Ensured smooth performance across different devices and browsers.
+
+▪ Search Feature
+
+Implemented a JavaScript-based search tool to filter products, vehicles, and other content.
+
+Included validation, highlighting, and user feedback mechanisms.
+
+2. Interactive Map Integration
+
+Embedded and documented an interactive Google Map displaying the business location.
+
+Enabled user interaction such as zooming, panning, and viewing directions.
+
+3. Forms and User Input Handling
+▪ Enquiry Form
+
+Added JavaScript form validation (input format, empty fields, incorrect submissions).
+
+Implemented responsive user feedback messages.
+
+▪ Contact Form
+
+Implemented JavaScript validation and structured error handling.
+
+Added email-recipient processing logic for message delivery.
+
+Included visual confirmation alerts for successful submissions.
+
+4. Search Engine Optimization (SEO)
+▪ Title Tags
+
+Added descriptive and optimized title tags across all pages.
+
+▪ Meta Tags
+
+Implemented meta descriptions and keyword tags to improve search ranking.
+
+Ensured consistency with page content and business objectives.
+
+▪ Image Optimization
+
+Renamed all images using descriptive, meaningful filenames.
+
+Added proper alt text for accessibility and SEO compliance.
 
 ### Version 2.0.0 – 2025-09-XX
 

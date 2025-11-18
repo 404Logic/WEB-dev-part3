@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeInquiryModal();
 });
 
+// Initialize live time and date immediately since script loads at end of body
+initializeLiveTimeAndDate();
+
 // ===== ACCORDIONS =====
 function initializeAccordions() {
     const accordions = document.querySelectorAll('.accordion-header');
@@ -864,6 +867,41 @@ function monitorPerformance() {
             console.log(`Page load time: ${perfData.loadEventEnd - perfData.fetchStart}ms`);
         });
     }
+}
+
+// ===== LIVE TIME AND DATE =====
+function initializeLiveTimeAndDate() {
+    function updateTimeAndDate() {
+        const now = new Date();
+        const timeElement = document.getElementById('live-time');
+        const dateElement = document.getElementById('live-date');
+
+        if (timeElement) {
+            const timeString = now.toLocaleTimeString('en-US', {
+                hour12: true,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            timeElement.textContent = `Current Time: ${timeString}`;
+        }
+
+        if (dateElement) {
+            const dateString = now.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            dateElement.textContent = `Date: ${dateString}`;
+        }
+    }
+
+    // Update immediately
+    updateTimeAndDate();
+
+    // Update every second
+    setInterval(updateTimeAndDate, 1000);
 }
 
 //monitorPerformance();

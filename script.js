@@ -117,9 +117,6 @@ function initializeLightbox() {
             <div class="lightbox-content">
                 <img src="" alt="" id="lightbox-image">
                 <div class="lightbox-caption" id="lightbox-caption"></div>
-                <button class="lightbox-close">&times;</button>
-                <button class="lightbox-prev">&larr;</button>
-                <button class="lightbox-next">&rarr;</button>
             </div>
         </div>
     `;
@@ -142,25 +139,7 @@ function initializeLightbox() {
         document.body.style.overflow = 'hidden';
     }
 
-    // Navigation
-    document.querySelector('.lightbox-prev').addEventListener('click', function() {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        const img = images[currentImageIndex];
-        showLightbox(img.src, img.alt);
-    });
-
-    document.querySelector('.lightbox-next').addEventListener('click', function() {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        const img = images[currentImageIndex];
-        showLightbox(img.src, img.alt);
-    });
-
     // Close lightbox
-    document.querySelector('.lightbox-close').addEventListener('click', function() {
-        lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
     document.querySelector('.lightbox-overlay').addEventListener('click', function(e) {
         if (e.target === this) {
             lightbox.style.display = 'none';
@@ -434,22 +413,6 @@ function initializeTestimonialsSlider() {
     // Auto-rotate testimonials
     setInterval(nextTestimonial, 5000);
 
-    // Add navigation buttons
-    const navButtons = document.createElement('div');
-    navButtons.className = 'testimonial-nav mt-3 text-center';
-    navButtons.innerHTML = `
-        <button class="btn btn-sm btn-outline-danger me-2" id="prev-testimonial">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="btn btn-sm btn-outline-danger" id="next-testimonial">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-    `;
-    testimonialsContainer.appendChild(navButtons);
-
-    document.getElementById('prev-testimonial').addEventListener('click', prevTestimonial);
-    document.getElementById('next-testimonial').addEventListener('click', nextTestimonial);
-
     showTestimonial(currentTestimonial);
 }
 
@@ -709,4 +672,4 @@ function monitorPerformance() {
     }
 }
 
-monitorPerformance();
+//monitorPerformance();
